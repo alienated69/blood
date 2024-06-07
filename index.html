@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            background-image: url('images/japan.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+        }
+
+        .content {
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 2rem;
+            transition: background-color 0.3s, color 0.3s, font-family 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .dark-mode .content {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .mode-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            border: none;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        .mode-toggle:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="navbar">
+        <div class="brand">Dougie</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <button class="mode-toggle" onclick="toggleMode()">
+                <i class="fa-regular fa-moon"></i>
+            </button>
+        </div>
+    </div>
+    <div class="content">
+        <h1>SmileHigh</h1>
+        <p>Spreading Mental Health Awareness and Political Freedom of Tribalism</p>
+    </div>
+
+    <script>
+        function toggleMode() {
+            var body = document.body;
+            var button = document.querySelector('.mode-toggle i');
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                button.classList.remove('fa-sun');
+                button.classList.add('fa-moon');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                button.classList.remove('fa-moon');
+                button.classList.add('fa-sun');
+            }
+        }
+    </script>
+</body>
+</html>
