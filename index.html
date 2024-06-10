@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-            background-image: url('images/japan.png');
+            transition: background-color 0.3s, color 0.3s, font-family 0.3s;
+            background-image: url('images/SmileHighBackground.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
 
         .navbar {
@@ -21,45 +34,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
-            background-color: rgba(51, 51, 51, 0.8);
-            color: #fff;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar a:hover {
-            background-color: rgba(85, 85, 85, 0.8);
-        }
-
-        .content {
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            margin: 2rem;
-            transition: background-color 0.3s, color 0.3s, font-family 0.3s;
-        }
-
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-
-        .light-mode {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .dark-mode .content {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: transparent;
+            color: #000; /* Changed to black */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: background-color 0.3s;
         }
 
         .mode-toggle {
+            margin-right: auto;
+            padding-left: 1rem;
             cursor: pointer;
             padding: 0.5rem;
             border: none;
@@ -72,26 +58,134 @@
         .mode-toggle:hover {
             background-color: #666;
         }
+
+        .navbar .links {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem; /* Move links slightly to the left */
+        }
+
+        .navbar a {
+            color: #000; /* Changed to black */
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .content {
+            padding: 2rem;
+            background-color: rgba(50, 50, 50, 0.7); /* transparent gray */
+            color: #ffffff;
+            border-radius: 10px;
+            margin: 5rem 2rem 2rem 2rem; /* Adjusted margin to avoid overlap with navbar */
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s, font-family 0.3s;
+            min-height: 100vh; /* Ensure content height for scrolling */
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .light-mode {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .dark-mode .content {
+            background-color: rgba(0, 0, 0, 0.7); /* darker transparent gray */
+            color: #ffffff; /* white text */
+            font-family: Arial, sans-serif;
+        }
+
+        .newsletter {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: rgba(50, 50, 50, 0.7); /* transparent gray */
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .dark-mode .newsletter {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: transparent;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer a:hover {
+            color: #87cefa;
+        }
     </style>
 </head>
-<body class="light-mode">
+<body>
+    <div class="background-overlay"></div>
     <div class="navbar">
-        <div class="brand">Dougie</div>
+        <button class="mode-toggle" onclick="toggleMode()">
+            <i class="fa-regular fa-moon"></i>
+        </button>
         <div class="links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <button class="mode-toggle" onclick="toggleMode()">
-                <i class="fa-regular fa-moon"></i>
-            </button>
         </div>
     </div>
     <div class="content">
         <h1>SmileHigh</h1>
         <p>Spreading Mental Health Awareness and Political Freedom of Tribalism</p>
+        <div class="newsletter">
+            <h2>Community Building!Understanding Audience to better Serve YOU!</h2>
+            <!-- Google Form Embed Code Start -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScaNEoGoaUDurEZrqLA9fXxoNYG9SmKkZ_FxmKTOKCHN4pmjA/viewform?embedded=true" width="640" height="407" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <!-- Google Form Embed Code End -->
+        </div>
+    </div>
+    <div class="footer">
+        <p>Follow for more on:</p>
+        <a href="https://www.youtube.com/@Smile-High"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://x.com/ISmileHighI"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.reddit.com/user/Smile69High/"><i class="fa-brands fa-reddit"></i></a>
+        <a href="https://disqus.com/by/SmileHigh69/"><i class="fa-brands fa-discourse"></i></a>
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var body = document.body;
+            var button = document.querySelector('.mode-toggle i');
+            var darkMode = localStorage.getItem("dark-mode");
+            if (darkMode === "enabled") {
+                body.classList.add('dark-mode');
+                button.classList.remove('fa-moon');
+                button.classList.add('fa-sun');
+            } else {
+                body.classList.add('light-mode');
+                button.classList.remove('fa-sun');
+                button.classList.add('fa-moon');
+            }
+        });
+
         function toggleMode() {
             var body = document.body;
             var button = document.querySelector('.mode-toggle i');
@@ -100,11 +194,13 @@
                 body.classList.add('light-mode');
                 button.classList.remove('fa-sun');
                 button.classList.add('fa-moon');
+                localStorage.setItem("dark-mode", "disabled");
             } else {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
                 button.classList.remove('fa-moon');
                 button.classList.add('fa-sun');
+                localStorage.setItem("dark-mode", "enabled");
             }
         }
     </script>
